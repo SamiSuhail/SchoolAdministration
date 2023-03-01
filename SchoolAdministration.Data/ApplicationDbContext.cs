@@ -17,5 +17,8 @@ namespace ConferencePlanner.GraphQL.Data
                 .HaveConversion<DateOnlyConverter>();
         }
         public DbSet<Student> Students { get; set; } = default!;
+        public DbSet<Teacher> Teachers { get; set; } = default!;
+        public DbSet<TestResult> TestResults { get; set; } = default!;
+        public DbSet<Class> Classes { get; set; } = default!;
     }
 }

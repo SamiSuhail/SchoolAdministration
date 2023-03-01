@@ -11,10 +11,10 @@ namespace SchoolAdministration.Data.Models
 
         [Required]
         [StringLength(200)]
-        public string FirstName { get; set; } = default!;
+        public string? FirstName { get; set; }
 
         [Required]
         [StringLength(200)]
-        public string LastName { get; set; } = default!;
+        public string? LastName { get; set; }
     }
 }

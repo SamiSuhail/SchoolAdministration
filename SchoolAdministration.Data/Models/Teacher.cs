@@ -1,4 +1,6 @@
-﻿namespace SchoolAdministration.Data.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SchoolAdministration.Data.Models
 {
     public enum Subject
     {
@@ -9,7 +11,10 @@
 
     public class Teacher : Person
     {
+
+        public int ClassId { get; set; }
+        public Class? Class { get; set; }
+
         public Subject Subject { get; set; }
-        public Student[] Students { get; set; } = default!;
     }
 }

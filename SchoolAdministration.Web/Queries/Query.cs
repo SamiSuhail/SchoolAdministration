@@ -5,7 +5,7 @@ namespace SchoolAdministration.Web.Queries
 {
     public class Query
     {
-        public Task<List<Student>> GetStudents(IStudentService studentService) =>
+        public Task<List<Student>> GetStudents(ISchoolService studentService) =>
             studentService.GetStudents();
     }
 }

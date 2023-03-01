@@ -2,20 +2,20 @@
 
 namespace SchoolAdministration.Web.Inputs
 {
-    public record AddStudentInput(
+    public record AddTeacherInput(
         string FirstName,
         string LastName,
         DateOnly DateOfBirth,
         int ClassId
     );
 
-    public class AddStudentPayload
+    public class AddTeacherPayload
     {
-        public AddStudentPayload(Student student)
+        public AddTeacherPayload(Teacher teacher)
         {
-            this.Student = student;
+            Teacher = teacher;
         }
 
-        public Student Student { get; }
+        public Teacher Teacher { get; }
     }
 }

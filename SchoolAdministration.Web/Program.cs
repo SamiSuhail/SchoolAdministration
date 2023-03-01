@@ -12,11 +12,11 @@ builder.Services
         o.UseSqlServer(builder.Configuration.GetConnectionString("Database"),
             a => a.MigrationsAssembly("SchoolAdministration.Web"));
     })
-    .AddTransient<IStudentService, StudentService>();
+    .AddTransient<ISchoolService, SchoolService>();
 
 builder.Services.AddGraphQLServer()
     .RegisterDbContext<ApplicationDbContext>(DbContextKind.Pooled)
-    .RegisterService<IStudentService>()
+    .RegisterService<ISchoolService>()
     .AddQueryType<Query>()
     .AddMutationType<Mutation>();
 

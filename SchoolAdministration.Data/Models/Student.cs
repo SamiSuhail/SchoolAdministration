@@ -1,4 +1,4 @@
-﻿namespace SchoolAdministration.Web.Types
+﻿namespace SchoolAdministration.Data.Models
 {
     public class Student : Person
     {

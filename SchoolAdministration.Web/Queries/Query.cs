@@ -1,4 +1,4 @@
-﻿using SchoolAdministration.Web.Types;
+﻿using SchoolAdministration.Data.Models;
 
 namespace SchoolAdministration.Web.Queries
 {

@@ -1,17 +1,22 @@
 using ConferencePlanner.GraphQL.Data;
 using Microsoft.EntityFrameworkCore;
+using SchoolAdministration.Domain;
 using SchoolAdministration.Web.Mutations;
 using SchoolAdministration.Web.Queries;
 
 var builder = WebApplication.CreateBuilder();
 
 builder.Services
-    .AddDbContext<ApplicationDbContext>(o =>
+    .AddPooledDbContextFactory<ApplicationDbContext>(o =>
     {
-        o.UseSqlServer(builder.Configuration.GetConnectionString("Database"), 
+        o.UseSqlServer(builder.Configuration.GetConnectionString("Database"),
             a => a.MigrationsAssembly("SchoolAdministration.Web"));
     })
-    .AddGraphQLServer()
+    .AddTransient<IStudentService, StudentService>();
+
+builder.Services.AddGraphQLServer()
+    .RegisterDbContext<ApplicationDbContext>(DbContextKind.Pooled)
+    .RegisterService<IStudentService>()
     .AddQueryType<Query>()
     .AddMutationType<Mutation>();
 

@@ -1,5 +1,5 @@
-﻿using ConferencePlanner.GraphQL.Data;
-using SchoolAdministration.Data.Models;
+﻿using SchoolAdministration.Data.Models;
+using SchoolAdministration.Domain;
 using SchoolAdministration.Web.Inputs;
 
 namespace SchoolAdministration.Web.Mutations
@@ -8,7 +8,7 @@ namespace SchoolAdministration.Web.Mutations
     {
         public async Task<AddStudentPayload> AddStudentAsync(
             AddStudentInput input,
-            [Service] ApplicationDbContext context)
+            IStudentService studentService)
         {
             var student = new Student
             {
@@ -17,8 +17,7 @@ namespace SchoolAdministration.Web.Mutations
                 DateOfBirth = input.DateOfBirth,
             };
 
-            context.Students.Add(student);
-            await context.SaveChangesAsync();
+            await studentService.AddStudent(student);
 
             return new AddStudentPayload(student);
         }

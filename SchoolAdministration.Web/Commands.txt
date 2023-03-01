@@ -1,0 +1,2 @@
+﻿dotnet ef migrations add <MigrationName> --project SchoolAdministration.Web
+dotnet ef database update --project SchoolAdministration.Web

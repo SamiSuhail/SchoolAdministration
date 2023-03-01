@@ -1,8 +1,9 @@
 using ConferencePlanner.GraphQL.Data;
 using Microsoft.EntityFrameworkCore;
+using SchoolAdministration.Web.Mutations;
 using SchoolAdministration.Web.Queries;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder();
 
 builder.Services
     .AddDbContext<ApplicationDbContext>(o =>
@@ -11,7 +12,8 @@ builder.Services
             a => a.MigrationsAssembly("SchoolAdministration.Web"));
     })
     .AddGraphQLServer()
-    .AddQueryType<Query>();
+    .AddQueryType<Query>()
+    .AddMutationType<Mutation>();
 
 var app = builder.Build();
 

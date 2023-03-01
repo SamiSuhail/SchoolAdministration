@@ -1,10 +1,14 @@
-﻿using SchoolAdministration.Data.Models;
+﻿using ConferencePlanner.GraphQL.Data;
+using SchoolAdministration.Data.Models;
 
 namespace SchoolAdministration.Web.Queries
 {
     public class Query
     {
-        public Class GetClass(string? name = null)
+        public IQueryable<Student> GetStudents([Service] ApplicationDbContext context) =>
+            context.Students;
+
+        public Class GetClassFake(string? name = null)
         {
             return new Class
             {

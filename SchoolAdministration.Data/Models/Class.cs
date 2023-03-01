@@ -3,8 +3,8 @@
     public class Class
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public Teacher Teacher { get; set; }
-        public Test[] Tests { get; set; }
+        public string Name { get; set; } = default!;
+        public Teacher Teacher { get; set; } = default!;
+        public Test[]? Tests { get; set; }
     }
 }

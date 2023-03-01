@@ -10,6 +10,6 @@
     public class Teacher : Person
     {
         public Subject Subject { get; set; }
-        public Student[] Students { get; set; }
+        public Student[] Students { get; set; } = default!;
     }
 }

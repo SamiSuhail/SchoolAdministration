@@ -1,10 +1,20 @@
-﻿namespace SchoolAdministration.Data.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SchoolAdministration.Data.Models
 {
     public abstract class Person
     {
         public int Id { get; set; }
+
+        [Required]
         public DateOnly DateOfBirth { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+
+        [Required]
+        [StringLength(200)]
+        public string FirstName { get; set; } = default!;
+
+        [Required]
+        [StringLength(200)]
+        public string LastName { get; set; } = default!;
     }
 }

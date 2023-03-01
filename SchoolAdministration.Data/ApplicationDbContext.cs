@@ -16,6 +16,6 @@ namespace ConferencePlanner.GraphQL.Data
             builder.Properties<DateOnly>()
                 .HaveConversion<DateOnlyConverter>();
         }
-        public DbSet<Student> Students { get; set; }
+        public DbSet<Student> Students { get; set; } = default!;
     }
 }

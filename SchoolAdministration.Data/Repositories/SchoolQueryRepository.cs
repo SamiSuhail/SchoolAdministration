@@ -17,7 +17,7 @@ namespace SchoolAdministration.Data.Repositories
         IQueryable<TestResult> GetTestResults();
     }
 
-    public sealed class SchoolQueryRepository : ISchoolQueryRepository
+    public sealed class SchoolQueryRepository : ISchoolQueryRepository, IAsyncDisposable
     {
         private readonly ApplicationDbContext _dbContext;
 
@@ -33,5 +33,7 @@ namespace SchoolAdministration.Data.Repositories
         public IQueryable<Teacher> GetTeachers() => _dbContext.Teachers;
 
         public IQueryable<TestResult> GetTestResults() => _dbContext.TestResults;
+
+        public ValueTask DisposeAsync() => _dbContext.DisposeAsync();
     }
 }

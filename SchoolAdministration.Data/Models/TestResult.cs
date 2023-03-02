@@ -7,12 +7,12 @@ namespace SchoolAdministration.Data.Models
         public int Id { get; set; }
 
         public int? StudentId { get; set; }
-        public virtual Student? Student { get; set; }
+        public Student? Student { get; set; }
 
 
 
         public int ClassId { get; set; }
-        public virtual Class? Class { get; set; }
+        public Class? Class { get; set; }
 
         public int? Grade { get; set; }
     }

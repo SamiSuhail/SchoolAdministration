@@ -8,7 +8,6 @@ var builder = WebApplication.CreateBuilder();
 builder.Services
     .AddPooledDbContextFactory<ApplicationDbContext>(o =>
     {
-        o.UseLazyLoadingProxies();
         o.UseSqlServer(builder.Configuration.GetConnectionString("Database"));
     })
     .AddTransient<ISchoolCommandRepository, SchoolCommandRepository>()

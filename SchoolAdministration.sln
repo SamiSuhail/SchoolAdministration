@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolAdministration.Web", "SchoolAdministration.Web\SchoolAdministration.Web.csproj", "{03E1EFA7-0F2B-4B67-B484-2CA40218BF38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolAdministration.Web", "SchoolAdministration.Web\SchoolAdministration.Web.csproj", "{03E1EFA7-0F2B-4B67-B484-2CA40218BF38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolAdministration.Data", "SchoolAdministration.Data\SchoolAdministration.Data.csproj", "{17680679-3F7B-42D6-8E3A-2A91331C595A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolAdministration.Domain", "SchoolAdministration.Domain\SchoolAdministration.Domain.csproj", "{A1E3775C-FDD7-42DF-BEEC-2E83436E58F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolAdministration.Data", "SchoolAdministration.Data\SchoolAdministration.Data.csproj", "{17680679-3F7B-42D6-8E3A-2A91331C595A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{17680679-3F7B-42D6-8E3A-2A91331C595A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17680679-3F7B-42D6-8E3A-2A91331C595A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17680679-3F7B-42D6-8E3A-2A91331C595A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1E3775C-FDD7-42DF-BEEC-2E83436E58F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1E3775C-FDD7-42DF-BEEC-2E83436E58F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1E3775C-FDD7-42DF-BEEC-2E83436E58F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1E3775C-FDD7-42DF-BEEC-2E83436E58F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

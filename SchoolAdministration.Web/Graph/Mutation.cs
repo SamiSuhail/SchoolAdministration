@@ -1,28 +1,28 @@
 ﻿using SchoolAdministration.Data.Models;
-using SchoolAdministration.Domain;
+using SchoolAdministration.Data.Repositories;
 using SchoolAdministration.Web.Inputs;
 
-namespace SchoolAdministration.Web.Mutations
+namespace SchoolAdministration.Web.Graph
 {
     public class Mutation
     {
         public async Task<AddClassPayload> AddClassAsync(
             AddClassInput input,
-            ISchoolService schoolService)
+            ISchoolCommandRepository repository)
         {
             var @class = new Class
             {
                 Name = input.Name
             };
 
-            await schoolService.AddClass(@class);
+            await repository.AddClass(@class);
 
             return new AddClassPayload(@class);
         }
 
         public async Task<AddStudentPayload> AddStudentAsync(
             AddStudentInput input,
-            ISchoolService schoolService)
+            ISchoolCommandRepository repository)
         {
             var student = new Student
             {
@@ -32,14 +32,14 @@ namespace SchoolAdministration.Web.Mutations
                 ClassId = input.ClassId,
             };
 
-            await schoolService.AddStudent(student);
+            await repository.AddStudent(student);
 
             return new AddStudentPayload(student);
         }
 
         public async Task<AddTeacherPayload> AddTeacherAsync(
             AddTeacherInput input,
-            ISchoolService schoolService)
+            ISchoolCommandRepository repository)
         {
             var teacher = new Teacher
             {
@@ -49,23 +49,23 @@ namespace SchoolAdministration.Web.Mutations
                 ClassId = input.ClassId,
             };
 
-            await schoolService.AddTeacher(teacher);
+            await repository.AddTeacher(teacher);
 
             return new AddTeacherPayload(teacher);
         }
 
         public async Task<AddTestResultPayload> AddTestResultAsync(
             AddTestResultInput input,
-            ISchoolService schoolService)
+            ISchoolCommandRepository repository)
         {
             var testResult = new TestResult
             {
-               ClassId = input.ClassId,
-               StudentId = input.StudentId,
-               Grade = input.Grade,
+                ClassId = input.ClassId,
+                StudentId = input.StudentId,
+                Grade = input.Grade,
             };
 
-            await schoolService.AddTestResult(testResult);
+            await repository.AddTestResult(testResult);
 
             return new AddTestResultPayload(testResult);
         }

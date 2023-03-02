@@ -2,22 +2,21 @@
 using Microsoft.EntityFrameworkCore;
 using SchoolAdministration.Data.Models;
 
-namespace SchoolAdministration.Domain
+namespace SchoolAdministration.Data.Repositories
 {
-    public interface ISchoolService
+    public interface ISchoolCommandRepository
     {
         Task AddClass(Class @class);
-        Task<List<Student>> GetStudents();
         Task AddStudent(Student student);
         Task AddTeacher(Teacher teacher);
         Task AddTestResult(TestResult testResult);
     }
 
-    public class SchoolService : ISchoolService, IAsyncDisposable
+    public sealed class SchoolCommandRepository : ISchoolCommandRepository, IAsyncDisposable
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public SchoolService(IDbContextFactory<ApplicationDbContext> dbContextFactory)
+        public SchoolCommandRepository(IDbContextFactory<ApplicationDbContext> dbContextFactory)
         {
             this._dbContext = dbContextFactory.CreateDbContext();
         }
@@ -26,11 +25,6 @@ namespace SchoolAdministration.Domain
         {
             _dbContext.Classes.Add(@class);
             await _dbContext.SaveChangesAsync();
-        }
-
-        public Task<List<Student>> GetStudents()
-        {
-            return _dbContext.Students.ToListAsync();
         }
 
         public async Task AddStudent(Student student)
@@ -51,9 +45,6 @@ namespace SchoolAdministration.Domain
             await _dbContext.SaveChangesAsync();
         }
 
-        public ValueTask DisposeAsync()
-        {
-            return _dbContext.DisposeAsync();
-        }
+        public ValueTask DisposeAsync() => _dbContext.DisposeAsync();
     }
 }

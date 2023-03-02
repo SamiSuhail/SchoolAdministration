@@ -18,7 +18,10 @@ builder.Services.AddGraphQLServer()
     .RegisterService<ISchoolCommandRepository>()
     .RegisterService<ISchoolQueryRepository>()
     .AddQueryType<Query>()
-    .AddMutationType<Mutation>();
+    .AddMutationType<Mutation>()
+    .AddFiltering()
+    .AddSorting()
+    .AddProjections();
 
 var app = builder.Build();
 

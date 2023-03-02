@@ -12,7 +12,7 @@ namespace SchoolAdministration.Data.Repositories
         Task AddTestResult(TestResult testResult);
     }
 
-    public sealed class SchoolCommandRepository : ISchoolCommandRepository, IAsyncDisposable
+    public sealed class SchoolCommandRepository : ISchoolCommandRepository
     {
         private readonly ApplicationDbContext _dbContext;
 
@@ -44,7 +44,5 @@ namespace SchoolAdministration.Data.Repositories
             _dbContext.TestResults.Add(testResult);
             await _dbContext.SaveChangesAsync();
         }
-
-        public ValueTask DisposeAsync() => _dbContext.DisposeAsync();
     }
 }

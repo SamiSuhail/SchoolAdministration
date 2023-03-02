@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace SchoolAdministration.Web.Migrations
+namespace SchoolAdministration.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230301133529_AllModels")]
+    [Migration("20230302144156_AllModels")]
     partial class AllModels
     {
         /// <inheritdoc />
